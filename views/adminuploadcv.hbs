@@ -1,0 +1,186 @@
+<head>
+<title>Hiring Cafe Admin</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- bootstrap-css -->
+<link rel="stylesheet" href="css/bootstrap.min.css" >
+<!-- //bootstrap-css -->
+<!-- Custom CSS -->
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href="css/style-responsive.css" rel="stylesheet"/>
+<!-- font CSS -->
+<link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+<!-- font-awesome icons -->
+<link rel="stylesheet" href="css/font.css" type="text/css"/>
+<link href="css/font-awesome.css" rel="stylesheet"> 
+<link rel="stylesheet" href="css/morris.css" type="text/css"/>
+<!-- calendar -->
+<link rel="stylesheet" href="css/monthly.css">
+<!-- //calendar -->
+<!-- //font-awesome icons -->
+<script src="js/jquery2.0.3.min.js"></script>
+<script src="js/raphael-min.js"></script>
+<script src="js/morris.js"></script>
+</head>
+<body>
+<section id="container">
+<!--header start-->
+<header class="header fixed-top clearfix">
+<!--logo start-->
+<div class="brand">
+    <a href="/dashboard" class="logo">
+        ADMIN
+    </a>
+    <div class="sidebar-toggle-box">
+        <div class="fa fa-bars"></div>
+    </div>
+</div>
+<!--logo end-->
+
+<div class="top-nav clearfix">
+    <!--search & user info start-->
+    <ul class="nav pull-right top-menu">
+        
+        <!-- user login dropdown start-->
+        <li>
+            <a data-toggle="dropdown"  href="#">
+                {{!-- <img alt="" src="https://tse2.mm.bing.net/th?id=OIP.rWI2VBQpu4fywuJNiKvgYAHaDf&pid=Api&P=0&h=180"> --}}
+                <span class="username">My Account</span>
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu extended logout">
+                <li><a href="resetpassword"><i class=" fa fa-suitcase"></i>Reset Password</a></li>
+                {{!-- <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li> --}}
+                <li><a href="/admin"><i class="fa fa-key"></i> Log Out</a></li>
+            </ul>
+        </li>
+        <!-- user login dropdown end -->
+       
+    </ul>
+    <!--search & user info end-->
+</div>
+</header>
+<!--header end-->
+<!--sidebar start-->
+<section>
+<aside>
+    <div id="sidebar" class="nav-collapse">
+        <!-- sidebar menu start-->
+        <div class="leftside-navigation">
+            <ul class="sidebar-menu" id="nav-accordion">
+                <li>
+                    <a href="/dashboard">
+                        <i class="fa fa-dashboard"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                
+				<li>
+                    <a href="/adminjobpost">
+                        <i class="fa fa-bullhorn"></i>
+                        <span>Job Posted </span>
+                    </a>
+                </li>
+
+				<li>
+                    <a class="active" href="/adminuploadcv">
+                        <i class="fa fa-bullhorn"></i>
+                        <span>Uploaded CV/Resume </span>
+                    </a>
+                </li>
+
+				<li>
+                    <a href="/adminplacement">
+                        <i class="fa fa-bullhorn"></i>
+                        <span>Placement Details </span>
+                    </a>
+                </li>
+
+				<li>
+                    <a href="/adminnotifications">
+                        <i class="fa fa-bullhorn"></i>
+                        <span>Notifications </span>
+                    </a>
+                </li>
+				
+                
+            </ul>            </div>
+        <!-- sidebar menu end-->
+    </div>
+</aside>
+<section id="main-content">
+	<section class="wrapper">
+<div class="log-w3">
+<div class="table-responsive" >
+  
+	<table class="table table-striped table-warning" ui-jq="footable" ui-options='{
+        "paging": {
+          "enabled": true
+        },
+        "filtering": {
+          "enabled": true
+        },
+        "sorting": {
+          "enabled": true
+        }}'>
+        <thead class="table-dark" >
+          <tr >
+            <th style="color:white;text-align:center" data-breakpoints="xs">ID</th>
+            <th style="color:white;text-align:center" data-breakpoints="xs">Name</th>
+            <th style="color:white;text-align:center" data-breakpoints="xs">Address</Address></th>
+            <th style="color:white;text-align:center" data-breakpoints="xs">Job Applying for</th>
+            <th style="color:white;text-align:center" data-breakpoints="xs">Age</th>
+            <th style="color:white;text-align:center" data-breakpoints="xs">Gender</th>
+            <th style="color:white;text-align:center" data-breakpoints="xs">Email</th>
+            <th style="color:white;text-align:center" data-breakpoints="xs">Contact</th>
+            <th style="color:white;text-align:center" data-breakpoints="xs sm md">Experience</th>
+            <th style="color:white;text-align:center" data-breakpoints="xs sm md" >Date of Birth</th>
+            <th style="color:white;text-align:center" data-breakpoints="xs">CV Document</th>
+            <th style="color:white;text-align:center" data-breakpoints="xs">Action</th>
+          </tr>
+        </thead>
+        <tbody >
+            {{#each cvdocument}}            
+          <tr data-expanded="true">
+            <td style="color:black;border: 1px solid rgb(199, 192, 192);">{{this.id}}</td>
+            <td style="color:black;border: 1px solid rgb(199, 192, 192);">{{this.fullname}}</td>
+            <td style="color:black;border: 1px solid rgb(199, 192, 192);">{{this.contactaddress}}</td>
+            <td style="color:black;border: 1px solid rgb(199, 192, 192);">{{this.jobapply}}</td>
+            <td style="color:black;border: 1px solid rgb(199, 192, 192);">{{this.age}}</td>
+            <td style="color:black;border: 1px solid rgb(199, 192, 192);">{{this.gender}}</td>
+            <td style="color:black;border: 1px solid rgb(199, 192, 192);">{{this.email}}</td>
+            <td style="color:black;border: 1px solid rgb(199, 192, 192);">{{this.contact}}</td>
+            <td style="color:black;border: 1px solid rgb(199, 192, 192);">{{this.experience}}</td>
+            <td style="color:black;border: 1px solid rgb(199, 192, 192);">{{this.dob}}</td>
+            <td style="color:red;border: 1px solid rgb(199, 192, 192);"><a href="{{ this.cvfile}}" class="pdf-link"><i class="far fa-file-pdf"></i>View PDF</a></td>
+           
+            <td style="color:black;border: 1px solid rgb(199, 192, 192);">
+            <form action="/updatecv/{{this._id}}" method="POST">
+         
+          <button type="submit" class="btn btn-outline-success">{{this.action}}</button>
+        </form>
+        <form action="/deletecv/{{this._id}}" method="POST">
+                    <button type="submit"  class="btn btn-outline-danger">Delete</button>
+        </form></td>
+          </tr>
+          {{/each}}
+          
+        </tbody>
+      </table>
+</div>
+</div></section>
+</section>
+<!--main content end-->
+</section></section>
+<script src="js/bootstrap.js"></script>
+<script src="js/jquery.dcjqaccordion.2.7.js"></script>
+<script src="js/scripts.js"></script>
+<script src="js/jquery.slimscroll.js"></script>
+<script src="js/jquery.nicescroll.js"></script>
+<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->
+<script src="js/jquery.scrollTo.js"></script>
+</body>
+</html>
