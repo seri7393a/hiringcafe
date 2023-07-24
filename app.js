@@ -7,18 +7,12 @@ const bodyParser=require('body-parser');
 const multer=require('multer');
 const nodemailer=require('nodemailer');
 const jwt=require('jsonwebtoken');
-// const methodOverride=require('method-override');
-// const cors=require('cors');
+
 const AWS = require('aws-sdk');
 const dotenv=require("dotenv");
 
 
-// const AWSConfig={
-//   accessKeyId: process.env.AccessKey,
-//   secretAccessKey: process.env.SecretKey,
-//   region: process.env.region
-// };
-// const s3=new AWS.S3(AWSConfig)
+
 
 dotenv.config()
 
@@ -52,51 +46,23 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({extended:false}))
 app.use(bodyParser.json())
-// app.use(methodOverride('_method'));
 
 
 
 
-//multer config
-// let upload=multer({
-//   limits:10*1024*1024,
-//   fileFilter:function(req,file,done){
-//     if(file.mimetype==='application/pdf' || file.mimetype==='image/jpeg' || file.mimetype==='image/jpg' || file.mimetype==='image/png'){
-//       done(null,true)
-//     }else{
-//       done("File type is not supported",false)
-//     }
-//   }
-// })
-// const uploadToImageS3=(fileData)=>{
-//   return new Promise((resolve,reject)=>{
-//     const params={
-//       Bucket:'eventimagehc',
-//       Key:`${Date.now()}.jpg`,
-//       Body:fileData
-//     }
-//     s3.upload(params,(err,data)=>{
-//       if(err){
-//         console.log(err);
-//       reject(err)      }
-//       console.log(data)
-//       return resolve(data)
-//     })
-//   })
-// }
 
 
 
-// app.use('/', usersRouter);
-// app.use('/admin', adminRouter);
+app.use('/', usersRouter);
+app.use('/admin', adminRouter);
 
-app.get('/', function(req, res, next) {
-  res.render('index');
-});
+// app.get('/', function(req, res, next) {
+//   res.render('index');
+// });
 
 
 
-// app.use(cors())
+
 app.post('/admindashboard', async(req, res, next)=> {
  try{
   loginModel.findOne({email:req.body.email}, (error, users) => {
